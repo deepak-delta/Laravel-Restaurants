@@ -14,7 +14,7 @@ class categoryController extends Controller
      */
     public function index()
     {
-        return "index";
+        //need to add data retivel
     }
 
     /**
