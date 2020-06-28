@@ -1,0 +1,2 @@
+php artisan serve => localhost
+php artisan make:model modelname -m => make both model and migration
