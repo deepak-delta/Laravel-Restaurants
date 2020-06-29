@@ -14,7 +14,8 @@ class categoryController extends Controller
      */
     public function index()
     {
-        //need to add data retivel
+        $cate = Category::latest()->get();
+        return view('category.index' , compact('cate'));
     }
 
     /**
