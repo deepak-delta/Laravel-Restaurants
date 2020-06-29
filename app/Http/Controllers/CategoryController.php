@@ -62,7 +62,8 @@ class categoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cate = Category::find($id);
+        return view('category.edit',compact('cate'));
     }
 
     /**
@@ -74,8 +75,12 @@ class categoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cate = Category::find($id);
+        $cate->name = $request->get('name');
+        $cate->save();
+        return redirect()->route('category.index')->with('message','Category Updated');
     }
+
 
     /**
      * Remove the specified resource from storage.
