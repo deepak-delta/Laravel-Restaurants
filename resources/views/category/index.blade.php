@@ -37,9 +37,35 @@
                                 </a>
                             </td>
                             <td>
-                                <a href="">
-                                    <button type="submit" class="btn btn-outline-danger">Delete</button>
-                                </a>
+                               
+                                <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#staticBackdrop{{$ca->id}}">
+                                    Delete
+                                </button>
+                                
+                                <div class="modal fade" id="staticBackdrop{{$ca->id}}" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <form action="{{route('category.destroy',[$ca->id])}}" method="post">@csrf
+                                            {{method_field('DELETE')}}
+                                            <div class="modal-header">
+                                            <h5 class="modal-title" id="staticBackdropLabel">Conform Delete</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-body">
+                                            Do you want to delete <b>{{$ca->name}}</b> category ?
+                                            </div>
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-success">Yes</button>
+                                            </div>
+                                        </form>
+                                      </div>
+                                    
+                                    </div>
+                                </div>
+
                             </td>
                         </tr>
                       @endforeach 
